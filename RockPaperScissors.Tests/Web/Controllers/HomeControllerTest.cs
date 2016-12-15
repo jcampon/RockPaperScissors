@@ -7,7 +7,7 @@ using NUnit.Framework;
 using RockPaperScissors;
 using RockPaperScissors.Web.Controllers;
 
-namespace RockPaperScissors.Tests.Controllers
+namespace RockPaperScissors.Tests.Web.Controllers
 {
     [TestFixture]
     public class HomeControllerTest
