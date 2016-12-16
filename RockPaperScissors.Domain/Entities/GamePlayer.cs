@@ -24,7 +24,7 @@ namespace RockPaperScissors.Domain.Entities
 
 		protected GamePlayer(int playerNumer)
 		{
-			PlayerNumber = (NumberOfPlayer)Enum.Parse(typeof(NumberOfPlayer), playerNumer.ToString());
+			PlayerNumber = (NumberOfPlayer)playerNumer;
 		}
 		
 		public virtual void PlayHand()

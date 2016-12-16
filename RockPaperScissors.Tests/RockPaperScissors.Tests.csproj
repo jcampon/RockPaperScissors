@@ -94,6 +94,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Services\TestsForHandMovementsResolverService.cs" />
+    <Compile Include="Domain\Services\TestsForRandomNumberGeneratorService.cs" />
+    <Compile Include="Domain\Services\TestsForHandMovementService.cs" />
+    <Compile Include="Domain\TestsForGameOrchestrator.cs" />
     <Compile Include="Domain\TestsForGamePlayerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\Controllers\HomeControllerTest.cs" />
@@ -116,7 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\Entities\" />
-    <Folder Include="Domain\Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

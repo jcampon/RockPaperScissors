@@ -39,13 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\GameResult.cs" />
+    <Compile Include="Entities\GameTurn.cs" />
+    <Compile Include="Entities\HandsPlay.cs" />
+    <Compile Include="Entities\HandsPlayResultOptions.cs" />
+    <Compile Include="Entities\HandMovementOptions.cs" />
     <Compile Include="Entities\GamePlayer.cs" />
+    <Compile Include="GameOrchestrator.cs" />
     <Compile Include="GamePlayerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\HandMovementsResolverService.cs" />
+    <Compile Include="Services\HandMovementService.cs" />
+    <Compile Include="Services\RandomNumberGeneratorService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
