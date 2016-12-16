@@ -60,7 +60,7 @@ namespace RockPaperScissors.Domain
 			var gameTurn = new GameTurn
 				{
 					HandsPlayOfTheTurn = handsPlayExecuted,
-					ResultOfTheHandsPlay = _handsPlayResolverService.ResolveHandsPlay(handsPlayExecuted)
+					ResultOfTheHandsPlay = _handsPlayResolverService.ResolveHandsPlayWithStrategies(handsPlayExecuted)
 				};
 
 			return gameTurn;

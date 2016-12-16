@@ -15,5 +15,15 @@ namespace RockPaperScissors.Domain.Entities
 			HandPlayFromPlayer1 = handPlayFromPlayer1;
 			HandPlayFromPlayer2 = handPlayFromPlayer2;
 		}
+
+		public override bool Equals(Object obj)
+		{
+			if (!(obj is HandsPlay))
+				return false;
+
+			var handPlay = (HandsPlay) obj;
+			return (this.HandPlayFromPlayer1.Equals(handPlay.HandPlayFromPlayer1) &&
+			        this.HandPlayFromPlayer2.Equals(handPlay.HandPlayFromPlayer2));
+		}
 	}
 }

@@ -94,6 +94,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Entities\TestsForHandsPlay.cs" />
     <Compile Include="Domain\TestsForHandsPlayFactory.cs" />
     <Compile Include="Domain\Services\TestsForHandMovementsResolverService.cs" />
     <Compile Include="Domain\Services\TestsForRandomNumberGeneratorService.cs" />
@@ -119,9 +120,7 @@
       <Name>RockPaperScissors.Web</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

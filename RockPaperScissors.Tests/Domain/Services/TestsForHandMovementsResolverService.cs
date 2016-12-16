@@ -35,7 +35,7 @@ namespace RockPaperScissors.Tests.Domain.Services
 			var handsPlay = GetHandsPlay(handPlayedByPlayer1, handPlayedByPlayer2);
 
 			// Act
-			var resultOfHandsPlay = _handsPlayResolverService.ResolveHandsPlay(handsPlay);
+			var resultOfHandsPlay = _handsPlayResolverService.ResolveHandsPlayWithStrategies(handsPlay);
 
 			// Assert
 			Assert.That(resultOfHandsPlay, Is.EqualTo((HandsPlayResultOptions.Result)expectedResult));

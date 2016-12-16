@@ -8,123 +8,37 @@ namespace RockPaperScissors.Domain.Services
 {
 	public interface IHandsPlayResolverService
 	{
-		HandsPlayResultOptions.Result ResolveHandsPlay(HandsPlay handsPlay);
+		HandsPlayResultOptions.Result ResolveHandsPlayWithStrategies(HandsPlay handsPlay);
 	}	
 	
 	public class HandsPlayResolverService : IHandsPlayResolverService
 	{
-		public HandsPlayResultOptions.Result ResolveHandsPlay(HandsPlay handsPlay)
+		private readonly Dictionary<HandsPlay, HandsPlayResultOptions.Result> _listOfHandPlayStrategies;
+
+		public HandsPlayResolverService()
 		{
-			var handsPlayResult = (HandsPlayResultOptions.Result) 0;
-
-			switch (handsPlay.HandPlayFromPlayer1)
+			_listOfHandPlayStrategies = new Dictionary<HandsPlay, HandsPlayResultOptions.Result>
 			{
-				case HandMovementOptions.HandMovement.Rock:
-				{
-					return GetResultWhenPlayer1PlaysRock(handsPlay.HandPlayFromPlayer2);
-					break;
-				}
-				case HandMovementOptions.HandMovement.Paper:
-				{
-					return GetResultWhenPlayer1PlaysPaper(handsPlay.HandPlayFromPlayer2);
-					break;
-				}
-				case HandMovementOptions.HandMovement.Scissors:
-				{
-					return GetResultWhenPlayer1PlaysScissors(handsPlay.HandPlayFromPlayer2);
-					break;
-				}
-			}
+				{new HandsPlay(HandMovementOptions.HandMovement.Rock, HandMovementOptions.HandMovement.Rock), HandsPlayResultOptions.Result.Draw},
+				{new HandsPlay(HandMovementOptions.HandMovement.Rock, HandMovementOptions.HandMovement.Paper), HandsPlayResultOptions.Result.Player2Wins},
+				{new HandsPlay(HandMovementOptions.HandMovement.Rock, HandMovementOptions.HandMovement.Scissors), HandsPlayResultOptions.Result.Player1Wins},
 
-			return handsPlayResult;
+				{new HandsPlay(HandMovementOptions.HandMovement.Paper, HandMovementOptions.HandMovement.Rock), HandsPlayResultOptions.Result.Player1Wins},
+				{new HandsPlay(HandMovementOptions.HandMovement.Paper, HandMovementOptions.HandMovement.Paper), HandsPlayResultOptions.Result.Draw},
+				{new HandsPlay(HandMovementOptions.HandMovement.Paper, HandMovementOptions.HandMovement.Scissors), HandsPlayResultOptions.Result.Player2Wins},
+
+				{new HandsPlay(HandMovementOptions.HandMovement.Scissors, HandMovementOptions.HandMovement.Rock), HandsPlayResultOptions.Result.Player2Wins},
+				{new HandsPlay(HandMovementOptions.HandMovement.Scissors, HandMovementOptions.HandMovement.Paper), HandsPlayResultOptions.Result.Player1Wins},
+				{new HandsPlay(HandMovementOptions.HandMovement.Scissors, HandMovementOptions.HandMovement.Scissors), HandsPlayResultOptions.Result.Draw}
+			};
 		}
 
-
-
-		#region Private Helpers Region
-
-		private HandsPlayResultOptions.Result GetResultWhenPlayer1PlaysRock(
-			HandMovementOptions.HandMovement handPlayFromPlayer2)
+		public HandsPlayResultOptions.Result ResolveHandsPlayWithStrategies(HandsPlay handsPlay)
 		{
-			var handsPlayResult = (HandsPlayResultOptions.Result)0;
+			foreach (var strategy in _listOfHandPlayStrategies.Where(strategy => strategy.Key.Equals(handsPlay)))
+				return strategy.Value;
 
-			switch(handPlayFromPlayer2)
-			{
-				case HandMovementOptions.HandMovement.Rock:
-					{
-						handsPlayResult = HandsPlayResultOptions.Result.Draw;
-						break;
-					}
-				case HandMovementOptions.HandMovement.Paper:
-					{
-						handsPlayResult = HandsPlayResultOptions.Result.Player2Wins;
-						break;
-					}
-				case HandMovementOptions.HandMovement.Scissors:
-					{
-						handsPlayResult = HandsPlayResultOptions.Result.Player1Wins;
-						break;
-					}
-			}
-
-			return handsPlayResult;
+			return HandsPlayResultOptions.Result.Draw;
 		}
-
-		private HandsPlayResultOptions.Result GetResultWhenPlayer1PlaysPaper(
-			HandMovementOptions.HandMovement handPlayFromPlayer2)
-		{
-			var handsPlayResult = (HandsPlayResultOptions.Result) 0;
-
-			switch (handPlayFromPlayer2)
-			{
-				case HandMovementOptions.HandMovement.Rock:
-				{
-					handsPlayResult = HandsPlayResultOptions.Result.Player1Wins;
-					break;
-				}
-				case HandMovementOptions.HandMovement.Paper:
-				{
-					handsPlayResult = HandsPlayResultOptions.Result.Draw;
-					break;
-				}
-				case HandMovementOptions.HandMovement.Scissors:
-				{
-					handsPlayResult = HandsPlayResultOptions.Result.Player2Wins;
-					break;
-				}
-			}
-
-			return handsPlayResult;
-		}
-
-		private HandsPlayResultOptions.Result GetResultWhenPlayer1PlaysScissors(
-			HandMovementOptions.HandMovement handPlayFromPlayer2)
-		{
-			var handsPlayResult = (HandsPlayResultOptions.Result)0;
-
-			switch(handPlayFromPlayer2)
-			{
-				case HandMovementOptions.HandMovement.Rock:
-					{
-						handsPlayResult = HandsPlayResultOptions.Result.Player2Wins;
-						break;
-					}
-				case HandMovementOptions.HandMovement.Paper:
-					{
-						handsPlayResult = HandsPlayResultOptions.Result.Player1Wins;
-						break;
-					}
-				case HandMovementOptions.HandMovement.Scissors:
-					{
-						handsPlayResult = HandsPlayResultOptions.Result.Draw;
-						break;
-					}
-			}
-
-			return handsPlayResult;
-		}
-
-		#endregion
-
 	}
 }
