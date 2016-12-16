@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HandsPlayFactory.cs" />
     <Compile Include="Entities\GameResult.cs" />
     <Compile Include="Entities\GameTurn.cs" />
     <Compile Include="Entities\HandsPlay.cs" />
@@ -48,7 +49,7 @@
     <Compile Include="GameOrchestrator.cs" />
     <Compile Include="GamePlayerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\HandMovementsResolverService.cs" />
+    <Compile Include="Services\HandsPlayResolverService.cs" />
     <Compile Include="Services\HandMovementService.cs" />
     <Compile Include="Services\RandomNumberGeneratorService.cs" />
   </ItemGroup>

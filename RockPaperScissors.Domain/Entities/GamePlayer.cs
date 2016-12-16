@@ -26,11 +26,6 @@ namespace RockPaperScissors.Domain.Entities
 		{
 			PlayerNumber = (NumberOfPlayer)playerNumer;
 		}
-		
-		public virtual void PlayHand()
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	public class HumanPlayer : GamePlayer

@@ -94,6 +94,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\TestsForHandsPlayFactory.cs" />
     <Compile Include="Domain\Services\TestsForHandMovementsResolverService.cs" />
     <Compile Include="Domain\Services\TestsForRandomNumberGeneratorService.cs" />
     <Compile Include="Domain\Services\TestsForHandMovementService.cs" />

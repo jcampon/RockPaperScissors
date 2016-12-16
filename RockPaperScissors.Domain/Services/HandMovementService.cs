@@ -16,6 +16,7 @@ namespace RockPaperScissors.Domain.Services
 	{
 		private readonly IRandomNumberGeneratorService _randomNumberGeneratorService;
 
+		// Default constructor to enable Dependency Injection through here and for when we add an IoC container
 		public HandMovementService(IRandomNumberGeneratorService randomNumberGeneratorService)
 		{
 			_randomNumberGeneratorService = randomNumberGeneratorService;

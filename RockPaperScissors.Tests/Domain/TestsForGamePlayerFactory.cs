@@ -8,7 +8,7 @@ namespace RockPaperScissors.Tests.Domain
 	[TestFixture]
 	public class TestsForGamePlayerFactory
 	{
-		private readonly GamePlayerFactory _gamePlayerFactory = new GamePlayerFactory();
+		private readonly IGamePlayerFactory _gamePlayerFactory = new GamePlayerFactory();
 		
 		[Test]
 		public void Test_that_the_factory_returns_a_valid_human_player()

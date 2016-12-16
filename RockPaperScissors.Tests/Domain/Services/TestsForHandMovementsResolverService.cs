@@ -8,12 +8,12 @@ namespace RockPaperScissors.Tests.Domain.Services
 	[TestFixture]
 	public class TestsForHandMovementsResolverService
 	{
-		private IHandMovementsResolverService _handMovementsResolverService;
+		private IHandsPlayResolverService _handsPlayResolverService;
 
 		[SetUp]
 		public void SetUp()
 		{
-			_handMovementsResolverService = new HandMovementsResolverService();
+			_handsPlayResolverService = new HandsPlayResolverService();
 		}
 
 		[Test]
@@ -35,7 +35,7 @@ namespace RockPaperScissors.Tests.Domain.Services
 			var handsPlay = GetHandsPlay(handPlayedByPlayer1, handPlayedByPlayer2);
 
 			// Act
-			var resultOfHandsPlay = _handMovementsResolverService.ResolveHandsPlay(handsPlay);
+			var resultOfHandsPlay = _handsPlayResolverService.ResolveHandsPlay(handsPlay);
 
 			// Assert
 			Assert.That(resultOfHandsPlay, Is.EqualTo((HandsPlayResultOptions.Result)expectedResult));
@@ -45,11 +45,8 @@ namespace RockPaperScissors.Tests.Domain.Services
 
 		private HandsPlay GetHandsPlay(int handPlayedByPlayer1, int handPlayedByPlayer2)
 		{
-			return new HandsPlay()
-			{
-				HandPlayFromPlayer1 = (HandMovementOptions.HandMovement)handPlayedByPlayer1,
-				HandPlayFromPlayer2 = (HandMovementOptions.HandMovement)handPlayedByPlayer2
-			};
+			return new HandsPlay((HandMovementOptions.HandMovement) handPlayedByPlayer1,
+			                     (HandMovementOptions.HandMovement) handPlayedByPlayer2);
 		}
 
 		#endregion

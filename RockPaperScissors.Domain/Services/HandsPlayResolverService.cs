@@ -6,12 +6,12 @@ using RockPaperScissors.Domain.Entities;
 
 namespace RockPaperScissors.Domain.Services
 {
-	public interface IHandMovementsResolverService
+	public interface IHandsPlayResolverService
 	{
 		HandsPlayResultOptions.Result ResolveHandsPlay(HandsPlay handsPlay);
 	}	
 	
-	public class HandMovementsResolverService : IHandMovementsResolverService
+	public class HandsPlayResolverService : IHandsPlayResolverService
 	{
 		public HandsPlayResultOptions.Result ResolveHandsPlay(HandsPlay handsPlay)
 		{
