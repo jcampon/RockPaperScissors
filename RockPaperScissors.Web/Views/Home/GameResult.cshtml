@@ -1,4 +1,6 @@
-﻿<h2>Rock - Paper - Scissors</h2>
+﻿@model RockPaperScissors.Web.Models.GameResultViewModel
+
+<h2>Rock - Paper - Scissors</h2>
 
 @using(Html.BeginForm("PlayGame", "Home", FormMethod.Post))
 {
@@ -21,10 +23,24 @@
 		</div>
 
 		<div id="PlayButton" style="padding: 20px;">
-			<input type="submit" value="PLAY THE GAME!" />
+			<input type="submit" value="PLAY THE GAME AGAIN!!!" />
 		</div>
 	</fieldset>
 }
+
+<div id="Results">
+	<h2>@Model.DisplayMessageWithResultOfTheGame()</h2>
+</div>
+
+<div id="ListOfTurns">
+	<h3>Details of the turns played on the last game:</h3>
+	<ul>
+		@foreach(var message in @Model.DisplayMessageWithListOfTurnsOfTheGame())
+		{
+			<li>@message</li>
+		}
+	</ul>
+</div>
 
 <script type="text/javascript">
 	function hideOptionsForHumanPlayer() {
