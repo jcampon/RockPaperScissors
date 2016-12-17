@@ -16,5 +16,11 @@ Technical Constraints/Considerations
 * Use .NET toolset (i.e. c#) and any associated plug ins you see fit 			   
 * Use best industry practices
 
-
 Don't know the game? http://en.wikipedia.org/wiki/Rock-paper-scissors
+
+Things to improve from the current version (commit num.8)
+                                                  
+* The UI does not maintain the state of the last played game's selected settings just yet. This is particularly noticeable when trying to play a Computer vs Computer game various times in a row. But the required data to cater for this is already contained within the view model so it shouldn't be difficult to implement this         
+* The UI has duplicated code on the views that should be moved into shared partial views to reduce code duplication 			   
+* The UI doesn't look great at the moment but still fullfills the criteria of a viable working game
+* More tests could be written for various parts of the web project
