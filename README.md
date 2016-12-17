@@ -1,6 +1,6 @@
 # Rock Paper Scissors
 
-__An ASP.Net MVC implementation of the Rock-Paper-Scissors game "Rock Paper Scissors"__ 
+__An ASP.Net MVC implementation of the game "Rock Paper Scissors"__ 
 
 Write an application that lets you play Rock-Paper-Scissors according to this criteria:
 
